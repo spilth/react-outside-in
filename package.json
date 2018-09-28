@@ -1,0 +1,25 @@
+{
+  "name": "react-outside-in",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-scripts": "1.1.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "features": "concurrently 'PORT=3001 BROWSER=none npm start' 'npm run cypress:test' --kill-others --success first",
+    "cypress:test": "wait-on http://localhost:3001 && cypress run --config baseUrl=http://localhost:3001",
+    "cypress:run": "cypress run",
+    "cypress:open": "cypress open"
+  },
+  "devDependencies": {
+    "concurrently": "^4.0.1",
+    "cypress": "^3.1.0",
+    "wait-on": "^3.0.1"
+  }
+}
